@@ -1,21 +1,24 @@
-function checkPassword(password) {
-  const ADMIN_PASSWORD = 'jqueryismyjam';
-  let message;
+console.log(Math.random()); // min = 0 max 1
+let computerChoise = "";
+ const number = Math.random();
+ if (number < 0.33) {
+   computerChoise = "камінь";
+ } else if (number >= 0.33 && number <= 0.66) {
+   computerChoise = "ножиці";
+ } else {
+   computerChoise = "папір";
+ }
 
-  if (password == null) { // Change this line
-    message =  'Canceled by user!';
-  } else if (password == ADMIN_PASSWORD) { // Change this line
-    message = 'Welcome!';
-  } else {
-    message = 'Access denied, wrong password!';
-  }
+ let userChoise = prompt("Введіть свій варіант");
 
-  //return message;
-  console.log(message);
-}
-
-checkPassword("mangohackzor");
-checkPassword(null);
-checkPassword("polyhax");
-checkPassword("jqueryismyjam");
-
+ if (userChoise === computerChoise) {
+   console.log("Нічия");
+ } else if (
+   (userChoise === "ножиці" && computerChoise === "папір") ||
+   (userChoise === "камінь" && computerChoise === "ножиці") ||
+   (userChoise === "папір" && computerChoise === "камінь")
+ ) {
+   alert("Виграв юзер");
+ } else {
+   alert(`Виграв компютер і він вибрав ${computerChoise}`);
+ }
